@@ -1,0 +1,27 @@
+﻿@model System.Collections.Generic.IEnumerable<BenjiePetCare.Core.Models.Pet>
+@using BenjiePetCare.Core.Models
+@{
+    ViewBag.Title = "Pets ";
+}
+
+<div id="main-content">
+    @foreach (Pet item in Model)
+    {
+        <div class="col-md-12">
+            <h2 style="display:inline-block">@item.Name</h2>
+            @if (@item.IsOnCare)
+            {
+                <span class="btn btn-success btn-sm" style="display:inline-block">On Care</span>
+            }
+            else
+            {
+                <span class="btn btn-danger btn-sm" style="display:inline-block"> Nevermind </span>
+            }
+            <p>@item.Notes</p>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/handlers/home-handler.js" type="text/javascript"></script>
+}
